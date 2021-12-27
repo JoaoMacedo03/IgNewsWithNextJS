@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const session = await getSession({ req })
 
     const stripeCustomer = await stripe.customers.create({
-      email: session.user.name
+      email: session.user.email
     })
 
     const stripeCheckoutSession = await stripe.checkout.sessions.create({
